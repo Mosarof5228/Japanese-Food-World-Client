@@ -1,16 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import TopNavbar from '../shared/TopNavbar/TopNavbar';
+import TopNavbar from '../../shared/TopNavbar/TopNavbar';
 
-const Main = () => {
+const LoginLayout = () => {
     return (
-
         <div>
             <TopNavbar></TopNavbar>
             <Outlet></Outlet>
         </div>
-
     );
 };
 
-export default Main;
+export default LoginLayout;
