@@ -5,24 +5,6 @@ import Registration from "../Home/Registration/Registration";
 import Main from "../layout/Main";
 
 const router = createBrowserRouter([
-    // {
-    //     path: '/',
-    //     element: <LoginLayout></LoginLayout>,
-    //     children: [
-    //         {
-    //             path: '/',
-    //             element: <Navigate to=""></Navigate>
-    //         },
-    //         {
-    //             path: '/login',
-    //             element: <Login></Login>
-    //         },
-    //         {
-    //             path: '/registration',
-    //             element: <Registration></Registration>
-    //         }
-    //     ]
-    // },
     {
         path: '/',
         element: <Main></Main>,
@@ -38,7 +20,8 @@ const router = createBrowserRouter([
             {
                 path: '/registration',
                 element: <Registration></Registration>
-            }
+            },
+
         ]
     },
 

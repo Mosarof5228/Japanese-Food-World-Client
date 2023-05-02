@@ -1,8 +1,11 @@
-import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const TopNavbar = () => {
+    const { user } = useContext(AuthContext);
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -10,15 +13,19 @@ const TopNavbar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-
                         <Nav.Link href="#pricing">Blog</Nav.Link>
-
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">profile</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            <Link to='/login'>Login</Link>
-                        </Nav.Link>
+                        {
+                            user &&
+                            <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                        }
+
+                        {
+                            user ? <Link to='/login'>Logout</Link> :
+                                <Link to='/login'>Login</Link>
+                        }
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
