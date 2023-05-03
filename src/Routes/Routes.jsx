@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Home from "../Home/Home/Home";
 import Login from "../Home/Login/Login";
+import NotFoundPage from "../Home/NotFoundPage/NotFoundPage";
 import RecepieDetails from "../Home/RecepieDetails/RecepieDetails";
 import Registration from "../Home/Registration/Registration";
 import Main from "../layout/Main";
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
                 path: 'chief/:id',
                 element: <PrivetRoute><RecepieDetails></RecepieDetails></PrivetRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/chiefs/${params.id}`)
+            },
+            {
+                path: "*",
+                element: <NotFoundPage></NotFoundPage>
             }
 
         ]
