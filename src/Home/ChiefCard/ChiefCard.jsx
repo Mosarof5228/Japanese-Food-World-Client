@@ -6,15 +6,16 @@ const ChiefCard = ({ chief }) => {
     const { chef_picture, chef_name, years_of_experience, num_of_recipes, likes, short_bio, id } = chief;
     return (
         <div>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={chef_picture} />
+            <Card >
+                <Card.Img style={{ height: "200px" }} variant="top" src={chef_picture} />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    <Card.Title>{chef_name}</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        <p>Exe. {years_of_experience} Years</p>
+                        <p>Recipes {num_of_recipes}</p>
+                        <p>Likes {likes}</p>
                     </Card.Text>
-                    <Link to={`/chief/${id}`}><Button variant="primary">Receipe Details</Button></Link>
+                    <Link to={`/chief/${id}`}><Button variant="primary">View Recipes</Button></Link>
                 </Card.Body>
             </Card>
         </div>

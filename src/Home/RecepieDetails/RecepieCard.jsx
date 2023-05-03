@@ -1,27 +1,26 @@
 import React from 'react';
+import { Button, Card } from 'react-bootstrap';
 
 
 const RecepieCard = ({ recipe }) => {
     const { recipe_picture, recipe_name, cooking_method, ingredients, rating } = recipe;
     return (
-
-        <div classNam="card mb-3" style={{ maxWidth: "540px" }}>
-            <div className="row g-0">
-                <div className="col-md-4">
-                    <img src={recipe_picture} className="img-fluid rounded-start" alt="..." />
-                </div>
-                <div className="col-md-8">
-                    <div className="card-body">
-                        <h5 className="card-title">{recipe_name}</h5>
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    );
-};
+        <Card className='position-relative' style={{ height: "550px" }}>
+            <Card.Body>
+                <Card.Title>{recipe_name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">Gradients</Card.Subtitle>
+                <ul>
+                    {ingredients.map((gradient, index) => (
+                        <li key={index}>{gradient}</li>
+                    ))}
+                </ul>
+                <Card.Text>{cooking_method}</Card.Text>
+                <Button className="position-absolute bottom-0 w-75 mx-auto mb-2" variant="primary">Cook it!</Button>
+            </Card.Body>
+        </Card>
+    )
+}
 
 export default RecepieCard;
+
+

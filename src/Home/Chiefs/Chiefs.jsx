@@ -13,7 +13,7 @@ const Chiefs = () => {
     return (
         <div className='container'>
             <h2>Total Chiefs:{chiefs.length}</h2>
-            <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3'>
+            <div className='row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3'>
                 {
                     chiefs.map(chief => <ChiefCard
                         key={chief.id}
