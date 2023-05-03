@@ -1,11 +1,17 @@
 import React, { useContext } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 
 const TopNavbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error))
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -22,7 +28,7 @@ const TopNavbar = () => {
                         }
 
                         {
-                            user ? <Link to='/login'>Logout</Link> :
+                            user ? <Button onClick={handleLogout}>Logout</Button> :
                                 <Link to='/login'>Login</Link>
                         }
 

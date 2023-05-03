@@ -23,7 +23,7 @@ const Registration = () => {
 
     }
     return (
-        <Container className='w-50 mx-auto shadow-lg p-3 mb-5 bg-white rounded mt-3 px-5 py-5 '>
+        <Container className='w-50 mx-auto shadow-lg p-3 mb-5 bg-white rounded mt-3'>
             <h2>Please Register</h2>
             <Form onSubmit={handleSignUp}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

@@ -4,6 +4,7 @@ import Login from "../Home/Login/Login";
 import RecepieDetails from "../Home/RecepieDetails/RecepieDetails";
 import Registration from "../Home/Registration/Registration";
 import Main from "../layout/Main";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'chief/:id',
-                element: <RecepieDetails></RecepieDetails>,
+                element: <PrivetRoute><RecepieDetails></RecepieDetails></PrivetRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/chiefs/${params.id}`)
             }
 
