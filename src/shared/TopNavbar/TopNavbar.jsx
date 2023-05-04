@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar }
     from 'react-bootstrap';
 import './TopNav.css'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 import ActiveLink from '../../Home/ActiveLink/ActiveLink';
@@ -21,9 +21,9 @@ const TopNavbar = () => {
                 <Navbar.Brand href="#home" className='fw-bold'>Chinese Food World</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mx-auto text-decoration-none">
-                        <Link to='/'>Home</Link>
-                        <Link to="/blog" className='ms-4'>Blog</Link>
+                    <Nav className="mx-auto d-flex gap-4 align-items-center text-decoration-none menubar ">
+                        <ActiveLink to='/'>Home</ActiveLink>
+                        <ActiveLink to="/blog">Blog</ActiveLink>
                     </Nav>
                     <Nav>
 
@@ -32,7 +32,7 @@ const TopNavbar = () => {
                                 <img className='rounded-circle' style={{ height: "45px", width: "45px" }} title={user.displayName} src={user.photoURL} alt="" />
                                 <Button className='ms-2' onClick={handleLogout}>Logout</Button>
                             </div> :
-                                <Link to='/login'>Login</Link>
+                                <ActiveLink to='/login'>Login</ActiveLink>
                         }
 
                     </Nav>

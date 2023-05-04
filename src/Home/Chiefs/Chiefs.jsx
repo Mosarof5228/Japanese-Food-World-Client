@@ -6,7 +6,7 @@ import ChiefCard from '../ChiefCard/ChiefCard';
 const Chiefs = () => {
     const [chiefs, setChiefs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/chiefs')
+        fetch('https://japanese-food-world-server-mosarof5228.vercel.app/chiefs')
             .then(res => res.json())
             .then(data => setChiefs(data))
     }, [])

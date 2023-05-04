@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             {
                 path: 'chief/:id',
                 element: <PrivetRoute><RecepieDetails></RecepieDetails></PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/chiefs/${params.id}`)
+                loader: ({ params }) => fetch(`https://japanese-food-world-server-mosarof5228.vercel.app/chiefs/${params.id}`)
             },
             {
                 path: '/blog',

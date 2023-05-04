@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-bootstrap';
-import './ActiveLink.css'
+import { NavLink } from 'react-router-dom';
+
+import './ActiveLink.css';
 
 const ActiveLink = ({ to, children }) => {
     return (
@@ -8,8 +9,7 @@ const ActiveLink = ({ to, children }) => {
             to={to}
             className={({ isActive }) => isActive
                 ? "active"
-                : ""
-            }
+                : ""}
         >
             {children}
         </NavLink>
