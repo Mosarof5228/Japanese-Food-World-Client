@@ -22,7 +22,7 @@ const Registration = () => {
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
-                updateImage(result.user, name, url)
+                updateImage(createdUser, name, url)
 
                 console.log(createdUser);
             })
@@ -32,7 +32,7 @@ const Registration = () => {
 
     }
 
-    const updateImage = (name, url) => {
+    const updateImage = (user, name, url) => {
         updateProfile(user, {
             displayName: name, photoURL: url
         }).then(() => {

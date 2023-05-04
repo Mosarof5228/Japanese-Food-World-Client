@@ -6,12 +6,12 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Footer from '../../shared/Footer/Footer';
 import './Login.css'
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 
 const Login = () => {
     const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    const goggleProvider = new GoogleAuthProvider();
     const { loginUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
@@ -36,7 +36,14 @@ const Login = () => {
     }
 
     const handleWithGoogle = () => {
-        console.log('google sign in with coming')
+        signInWithPopup(auth, goggleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         <Container className='login-section'>

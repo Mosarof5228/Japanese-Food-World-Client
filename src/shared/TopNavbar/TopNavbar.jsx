@@ -26,13 +26,12 @@ const TopNavbar = () => {
                         <Link to="/blog" className='ms-4'>Blog</Link>
                     </Nav>
                     <Nav>
-                        {
-                            user &&
-                            <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                        }
 
                         {
-                            user ? <Button onClick={handleLogout}>Logout</Button> :
+                            user ? <div>
+                                <img className='rounded-circle' style={{ height: "45px", width: "45px" }} title={user.displayName} src={user.photoURL} alt="" />
+                                <Button className='ms-2' onClick={handleLogout}>Logout</Button>
+                            </div> :
                                 <Link to='/login'>Login</Link>
                         }
 
