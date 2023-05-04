@@ -6,12 +6,13 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Footer from '../../shared/Footer/Footer';
 import './Login.css'
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.config';
 
 const Login = () => {
     const auth = getAuth(app);
     const goggleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const { loginUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
@@ -38,12 +39,19 @@ const Login = () => {
     const handleWithGoogle = () => {
         signInWithPopup(auth, goggleProvider)
             .then(result => {
-                const user = result.user;
-                console.log(user);
+                const logNndUser = result.user;
+
             })
             .catch(error => {
                 console.log(error)
             })
+    }
+
+
+    const handleGithubSignIn = () => {
+        signInWithPopup(auth, githubProvider)
+            .then()
+            .catch(error => console.log(error))
     }
     return (
         <Container className='login-section'>
@@ -73,7 +81,7 @@ const Login = () => {
                     <br /><br />
                     <div className='d-flex flex-column align-items-center gap-2 justify-content-center'>
                         <Button onClick={handleWithGoogle} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Sign in With Google</Button>
-                        <Button variant="outline-primary"> <FaGithubSquare></FaGithubSquare> Sign in With Github</Button>
+                        <Button onClick={handleGithubSignIn} variant="outline-primary"> <FaGithubSquare></FaGithubSquare> Sign in With Github</Button>
                     </div>
                 </Form>
 
