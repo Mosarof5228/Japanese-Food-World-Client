@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import Rating from 'react-rating';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaStar, FaStarHalf } from "react-icons/fa";
 
 
 const RecepieCard = ({ recipe }) => {
@@ -26,8 +28,21 @@ const RecepieCard = ({ recipe }) => {
                     </ul>
                     <Card.Text>{cooking_method}</Card.Text>
                     <ToastContainer></ToastContainer>
-                    <h5>Raging: {rating}</h5>
+                    <div className='d-flex  gap-4'>
+                        <h5>Raging: {rating}</h5>
+                        <Rating
+                            placeholderRating={rating}
+                            readonly
+                            emptySymbol={<FaStarHalf></FaStarHalf>}
+                            placeholderSymbol={<FaStar className='text-warning' ></FaStar>}
+                            fullSymbol={<FaStar></FaStar>}
+                        />
+                    </div>
+
                     <Button onClick={favoriteBtn} disabled={disabled} className="position-absolute bottom-0 w-75 mx-auto mb-2" variant="primary">Favorite</Button>
+
+
+
                 </Card.Body>
             </Card>
         </div>
