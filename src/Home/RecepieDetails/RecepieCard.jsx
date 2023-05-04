@@ -14,21 +14,23 @@ const RecepieCard = ({ recipe }) => {
         setDisabled(true);
     }
     return (
-        <Card className='position-relative mt-4' style={{ height: "550px" }}>
-            <Card.Body>
-                <Card.Title>{recipe_name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Gradients</Card.Subtitle>
-                <ul>
-                    {ingredients.map((gradient, index) => (
-                        <li key={index}>{gradient}</li>
-                    ))}
-                </ul>
-                <Card.Text>{cooking_method}</Card.Text>
-                <ToastContainer></ToastContainer>
-                <h5>Raging: {rating}</h5>
-                <Button onClick={favoriteBtn} disabled={disabled} className="position-absolute bottom-0 w-75 mx-auto mb-2" variant="primary">Favorite</Button>
-            </Card.Body>
-        </Card>
+        <div>
+            <Card className='position-relative mt-4' style={{ height: "550px" }}>
+                <Card.Body>
+                    <Card.Title>{recipe_name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">Gradients</Card.Subtitle>
+                    <ul>
+                        {ingredients.map((gradient, index) => (
+                            <li key={index}>{gradient}</li>
+                        ))}
+                    </ul>
+                    <Card.Text>{cooking_method}</Card.Text>
+                    <ToastContainer></ToastContainer>
+                    <h5>Raging: {rating}</h5>
+                    <Button onClick={favoriteBtn} disabled={disabled} className="position-absolute bottom-0 w-75 mx-auto mb-2" variant="primary">Favorite</Button>
+                </Card.Body>
+            </Card>
+        </div>
     )
 }
 

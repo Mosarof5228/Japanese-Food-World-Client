@@ -40,6 +40,7 @@ const Login = () => {
         signInWithPopup(auth, goggleProvider)
             .then(result => {
                 const logNndUser = result.user;
+                navigate(from, { replace: true })
 
             })
             .catch(error => {
@@ -50,7 +51,10 @@ const Login = () => {
 
     const handleGithubSignIn = () => {
         signInWithPopup(auth, githubProvider)
-            .then()
+            .then(result => {
+                const githubUser = result.user;
+                navigate(from, { replace: true })
+            })
             .catch(error => console.log(error))
     }
     return (
