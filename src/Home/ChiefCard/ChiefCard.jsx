@@ -6,7 +6,7 @@ const ChiefCard = ({ chief }) => {
     const { chef_picture, chef_name, years_of_experience, num_of_recipes, likes, short_bio, id } = chief;
     return (
         <div>
-            <Card >
+            <Card className='shadow px-2 py-2' >
                 <Card.Img style={{ height: "200px" }} variant="top" src={chef_picture} />
                 <Card.Body>
                     <Card.Title>{chef_name}</Card.Title>

@@ -1,6 +1,8 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
+import BlogPage from "../Home/Home/BlogPage/BlogPage";
 import Home from "../Home/Home/Home";
 import Login from "../Home/Login/Login";
+import Login2 from "../Home/Login/Login2";
 import NotFoundPage from "../Home/NotFoundPage/NotFoundPage";
 import RecepieDetails from "../Home/RecepieDetails/RecepieDetails";
 import Registration from "../Home/Registration/Registration";
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
                 path: 'chief/:id',
                 element: <PrivetRoute><RecepieDetails></RecepieDetails></PrivetRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/chiefs/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <BlogPage></BlogPage>
             },
             {
                 path: "*",

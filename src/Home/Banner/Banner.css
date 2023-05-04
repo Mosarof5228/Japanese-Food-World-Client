@@ -2,3 +2,7 @@
   background-image: url("/src/assets/banner\ image2.jpg");
   height: 400px;
 }
+.banner {
+  background-color: #d9e4ed;
+  padding-top: 20px;
+}

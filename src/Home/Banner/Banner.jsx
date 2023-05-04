@@ -5,10 +5,17 @@ import author from '../../assets/author image.jpg'
 
 const Banner = () => {
     return (
-        <Container className='mt-4'>
+        <Container className='mt-4 banner'>
             <Row className='d-flex justify-content-between '>
                 <Col lg={8}>
-                    <div className='banner-image'></div>
+                    <div className='banner-image'>
+                        <div className='d-flex flex-column justify-content-center align-items-center font-weight-bold'>
+                            <h2>Stop Waisting Your time <br></br> While thinking <br></br> what to cook....</h2>
+                            <p><small>1."Discover the Flavors of Japan: From Sushi to Ramen!"</small></p>
+                            <p><small>"Savor the Best of Japan's Cuisine with Our Authentic Recipes!"</small></p>
+                            <p><small>"Experience the Rich Culinary Heritage of Japan with Our Handpicked Selection of Recipes!"</small></p>
+                        </div>
+                    </div>
                 </Col>
                 <Col lg={4}>
                     <div className='d-flex flex-column'>

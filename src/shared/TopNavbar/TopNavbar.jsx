@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar }
+    from 'react-bootstrap';
+import './TopNav.css'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
+import ActiveLink from '../../Home/ActiveLink/ActiveLink';
 
 const TopNavbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -13,13 +16,14 @@ const TopNavbar = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-            <Container>
-                <Navbar.Brand href="#home">Chinese Food World</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" >
+            <Container className=' py-3 px-4 rounded topNav' >
+                <Navbar.Brand href="#home" className='fw-bold'>Chinese Food World</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#pricing">Blog</Nav.Link>
+                    <Nav className="mx-auto text-decoration-none">
+                        <Link to='/'>Home</Link>
+                        <Link to="/blog" className='ms-4'>Blog</Link>
                     </Nav>
                     <Nav>
                         {
