@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Footer from '../../shared/Footer/Footer';
 import RecepieCard from './RecepieCard';
+
 
 
 const RecepieDetails = () => {
@@ -9,7 +11,7 @@ const RecepieDetails = () => {
     console.log(chief)
     return (
         <div className='container'>
-            <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 mx-auto '>
+            <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 mx-auto three-recipe'>
                 {
                     recipes.map(recipe => <RecepieCard
                         key={recipe.id}
@@ -17,6 +19,7 @@ const RecepieDetails = () => {
                     ></RecepieCard>)
                 }
             </div>
+            <Footer></Footer>
         </div>
     );
 };

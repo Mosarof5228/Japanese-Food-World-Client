@@ -6,9 +6,12 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Footer from '../../shared/Footer/Footer';
 import './Login.css'
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
-
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import app from '../../firebase/firebase.config';
 
 const Login = () => {
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
     const { loginUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
@@ -30,6 +33,10 @@ const Login = () => {
             .catch(error => {
                 console.log(error)
             })
+    }
+
+    const handleWithGoogle = () => {
+        console.log('google sign in with coming')
     }
     return (
         <Container className='login-section'>
@@ -58,7 +65,7 @@ const Login = () => {
                     </Form.Text>
                     <br /><br />
                     <div className='d-flex flex-column align-items-center gap-2 justify-content-center'>
-                        <Button className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Sign in With Google</Button>
+                        <Button onClick={handleWithGoogle} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Sign in With Google</Button>
                         <Button variant="outline-primary"> <FaGithubSquare></FaGithubSquare> Sign in With Github</Button>
                     </div>
                 </Form>

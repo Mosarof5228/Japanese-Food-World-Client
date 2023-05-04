@@ -1,20 +1,29 @@
+import { updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+// import { getAuth } from "firebase/auth";
 
+
+// const auth = getAuth();
 const Registration = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, user } = useContext(AuthContext);
+    console.log(user)
     const handleSignUp = (event) => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
+        const url = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        console.log(email, password, name, url)
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
+                updateImage(result.user, name, url)
+
                 console.log(createdUser);
             })
             .catch(error => {
@@ -22,6 +31,23 @@ const Registration = () => {
             })
 
     }
+
+    const updateImage = (name, url) => {
+        updateProfile(user, {
+            displayName: name, photoURL: url
+        }).then(() => {
+            // Profile updated!
+            // ...
+        }).catch((error) => {
+            // An error occurred
+            // ...
+        });
+
+
+
+    }
+
+
     return (
         <Container className='w-50 mx-auto shadow-lg p-3 mb-5 bg-white rounded mt-3'>
             <h2>Please Register</h2>

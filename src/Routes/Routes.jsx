@@ -1,12 +1,14 @@
+import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import BlogPage from "../Home/Home/BlogPage/BlogPage";
-import Home from "../Home/Home/Home";
+// import Home from "../Home/Home/Home";
 import Login from "../Home/Login/Login";
 import NotFoundPage from "../Home/NotFoundPage/NotFoundPage";
 import RecepieDetails from "../Home/RecepieDetails/RecepieDetails";
 import Registration from "../Home/Registration/Registration";
 import Main from "../layout/Main";
 import PrivetRoute from "./PrivetRoute";
+const Home = React.lazy(() => import("../Home/Home/Home"));
 
 const router = createBrowserRouter([
     {
