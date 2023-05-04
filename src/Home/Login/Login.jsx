@@ -9,10 +9,11 @@ import { FaGithubSquare, FaGoogle } from "react-icons/fa";
 
 
 const Login = () => {
-    const { loginUser, loginWithGoogle } = useContext(AuthContext);
+    const { loginUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
-    const from = location.state?.from?.path || '/';
+    console.log(location)
+    const from = location.state?.from?.pathname || '/';
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -20,20 +21,10 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
-        loginWithGoogle()
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-
         loginUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                form.reset();
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -67,7 +58,7 @@ const Login = () => {
                     </Form.Text>
                     <br /><br />
                     <div className='d-flex flex-column align-items-center gap-2 justify-content-center'>
-                        <Button onClick={loginWithGoogle} className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Sign in With Google</Button>
+                        <Button className='mb-2' variant="outline-primary"> <FaGoogle></FaGoogle> Sign in With Google</Button>
                         <Button variant="outline-primary"> <FaGithubSquare></FaGithubSquare> Sign in With Github</Button>
                     </div>
                 </Form>

@@ -9,6 +9,7 @@ import { AuthContext } from '../provider/AuthProvider';
 const PrivetRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
+    console.log(location)
     if (loading) {
         return <div className='spinner-container '>
             <Spinner animation="grow" variant="info" />
